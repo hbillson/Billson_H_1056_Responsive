@@ -1,0 +1,85 @@
+
+
+
+/* mobile layout is the default - the columns stack on top of each other at full width */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	/* stops website from expanding past 1140px, margin auto ensures the website
+	   is centered when the viewport is expanded past 1140 */
+	margin: auto;
+	max-width: 1140px;
+}
+
+.box {
+	min-height: 25vh;  /*25% of viewport height to ensure boxes fill up the viewport */
+}
+
+/* setting up column's properties in the mobile layout */ 
+
+#box1 {
+	background-color: pink;
+}
+
+#box2 {
+	background-color: red;
+}
+
+#box3 {
+	display: none;
+}
+
+#box4 {
+	display: none;
+}
+
+
+/* at 641px and up, the website changes to this layout */
+
+@media screen and (min-width: 641px) {
+	#container {
+		display: flex;
+		/* on larger screens, the boxes are arranged side-by-side */
+		flex-direction: row;
+	}
+
+	.box  {
+		/* making sure boxes fill up the viewport */
+		height: 100vh;
+		/* width automatically grows to fit the container */ 
+		flex-grow: 1;
+	}
+
+	/* setting up wider layout columns' properties */
+
+	#box1 {
+		display: block;
+		background-color: blue;
+	}
+
+	#box2 {
+		display: block;
+		background-color: purple;
+	}
+
+	#box3 {
+		display: block;
+		background-color: gray;
+	}
+
+	#box4 {
+		display: block;
+		background-color: #A0522D;
+	}
+}
+
