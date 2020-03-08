@@ -1,4 +1,5 @@
-
+@charset "UTF-8";
+/* CSS Document */
 
 
 /* mobile layout is the default - the columns stack on top of each other at full width */
@@ -18,14 +19,14 @@ body {
 	/* stops website from expanding past 1140px, margin auto ensures the website
 	   is centered when the viewport is expanded past 1140 */
 	margin: auto;
-	max-width: 1140px;
+	min-height: 100vh;
 }
 
 .box {
-	min-height: 25vh;  /*25% of viewport height to ensure boxes fill up the viewport */
+	flex-basis: 25vh;
+	flex-grow: 1;
 }
 
-/* setting up column's properties in the mobile layout */ 
 
 #box1 {
 	background-color: pink;
@@ -36,31 +37,28 @@ body {
 }
 
 #box3 {
-	display: none;
+	display: hidden;
 }
 
 #box4 {
-	display: none;
+	display: hidden;
 }
 
 
-/* at 641px and up, the website changes to this layout */
+/* when the browser window is 641px width and up, the website uses the changes in THIS code */
 
 @media screen and (min-width: 641px) {
 	#container {
 		display: flex;
-		/* on larger screens, the boxes are arranged side-by-side */
 		flex-direction: row;
+		max-width: 1140px;
+		min-height: 100vh;
 	}
 
 	.box  {
-		/* making sure boxes fill up the viewport */
-		height: 100vh;
-		/* width automatically grows to fit the container */ 
+		flex-basis: 25vw;
 		flex-grow: 1;
 	}
-
-	/* setting up wider layout columns' properties */
 
 	#box1 {
 		display: block;
